@@ -17,11 +17,12 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "tb_user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotNull
     @Size(min=2, max=100)
@@ -30,8 +31,8 @@ public class User {
     @NotNull
     private Date dateOfBirth;
 
-    @OneToMany(mappedBy = "name", cascade = CascadeType.REMOVE)
-    @JsonIgnoreProperties("name")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("user")
     private List<Address> addresses;
 
 }
