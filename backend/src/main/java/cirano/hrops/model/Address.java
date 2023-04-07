@@ -19,23 +19,23 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @NotNull
+
     private String streetLine;
 
-    @NotNull
+
     private int postCode;
 
 
     private int number;
 
-    @NotNull
+
     private String city;
 
-    @NotNull
+
     private boolean isMain;
 
-//    @ManyToOne
-//    @JsonIgnoreProperties("user")
-//    private User user;
+    @ManyToOne
+    @JsonIgnoreProperties("user")
+    private User user;
 
 }

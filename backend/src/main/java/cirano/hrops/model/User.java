@@ -30,8 +30,8 @@ public class User {
 
     private Date dateOfBirth;
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-//    @JsonIgnoreProperties("user")
-//    private List<Address> addresses;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("user")
+    private List<Address> addresses;
 
 }

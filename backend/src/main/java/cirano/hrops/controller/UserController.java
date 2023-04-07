@@ -26,10 +26,23 @@ public class UserController {
         return ResponseEntity.ok(userRepository.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<User> searchById(@PathVariable Long id){
+        return userRepository.findById(id)
+                .map(resp -> ResponseEntity.ok(resp))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping("/register")
     public ResponseEntity<User> createUser (@RequestBody User user){
         return userService.registerUser(user).map(resp -> ResponseEntity.status(HttpStatus.CREATED).body(resp))
                 .orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+    }
 
+    @PutMapping("/update")
+    public ResponseEntity<User> updateUser (@RequestBody User user){
+        return userService.updateUser(user)
+                .map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 }
