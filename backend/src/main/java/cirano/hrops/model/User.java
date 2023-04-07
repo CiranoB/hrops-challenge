@@ -28,11 +28,10 @@ public class User {
     @Size(min=2, max=100)
     private String name;
 
-    @NotNull
     private Date dateOfBirth;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-    @JsonIgnoreProperties("user")
-    private List<Address> addresses;
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+//    @JsonIgnoreProperties("user")
+//    private List<Address> addresses;
 
 }

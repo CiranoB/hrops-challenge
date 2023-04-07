@@ -34,8 +34,8 @@ public class Address {
     @NotNull
     private boolean isMain;
 
-    @ManyToOne
-    @JsonIgnoreProperties("user")
-    private User user;
+//    @ManyToOne
+//    @JsonIgnoreProperties("user")
+//    private User user;
 
 }
