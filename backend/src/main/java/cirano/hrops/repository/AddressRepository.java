@@ -13,6 +13,6 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
 
     public List<Address> findAllByCityContainingIgnoreCase (String city);
 
-    public Optional<Address> findByUser(String user);
+    public Optional<Address> findByUser (Long userId);
 
 }
