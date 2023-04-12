@@ -20,7 +20,6 @@ public class AddressController {
     private AddressRepository addressRepository;
 
 
-
     @GetMapping("/{id}")
     public ResponseEntity<Address> searchById(@PathVariable Long id){
         return addressRepository.findById(id)

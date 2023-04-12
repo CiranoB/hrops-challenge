@@ -33,6 +33,13 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/address/{id}")
+    public ResponseEntity<User> getUserAddresses(@PathVariable Long id){
+        return userRepository.findById(id)
+                .map(resp -> ResponseEntity.ok(resp))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping("/register")
     public ResponseEntity<User> createUser (@RequestBody User user){
         return userService.registerUser(user).map(resp -> ResponseEntity.status(HttpStatus.CREATED).body(resp))
